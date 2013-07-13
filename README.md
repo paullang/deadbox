@@ -6,7 +6,7 @@ This allows an unauthenticated user to POST a single key value data pair in a ca
 
 ## Getting Started
 
-Install **deadbox** by either running `npm install deadbox --save` in your Hapi application's working directory.
+Install **deadbox** by running `npm install deadbox --save` in your Hapi application's working directory.
 
 ### Example usage 
 
@@ -36,4 +36,4 @@ If you try to get it again, it will no longer be there.
 ### Notes
 * See internals.defaults in lib/index.js for all the options you can override.
 * deadbox requires cache & route plugin permissions to be set to true.
-* This example uses Hapi's default memory cache that has can only store a limited amount of data, but Hapi also support 'redis' and 'mongodb' caching.
+* This example uses Hapi's default memory cache that can only store a limited amount of data, but Hapi also supports caching to'redis' and 'mongodb'.
