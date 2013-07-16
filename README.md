@@ -1,5 +1,7 @@
 # deadbox
 
+[![Build Status](https://travis-ci.org/paullang/deadbox.png)](https://travis-ci.org/paullang/deadbox)
+
 Anonymous dead drop plugin for [Hapi.js] (https://npmjs.org/package/hapi "Hapi.js")
 
 This allows an unauthenticated user to POST a single key value data pair in a cache on the interwebs so that another agent can GET it.  Once it is retrieved, they key & value are dropped from the cache so no other agents can get it.  Also, if the agent doesn't get it in the configured time, the item expires.
