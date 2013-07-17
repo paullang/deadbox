@@ -24,8 +24,7 @@
   },
   "devDependencies": {
     "hapi": "1.x.x",
-    "lab": "0.x.x",
-    "complexity-report": "0.x.x"
+    "lab": "0.x.x"
   },
   "peerDependencies": {
     "hapi": "1.x.x"
