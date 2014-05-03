@@ -1,8 +1,8 @@
 var Hapi = require('hapi');
-var server = new Hapi.Server(8000, { cache: 'memory' });
+var server = new Hapi.Server(8000, { cache: 'catbox-memory' });
 var deadboxOptions = { messageForGet: 'Here is the last copy!', messageForGetNotFound: 'You are too late!', ttl: 60000 };
 
-server.pack.allow({ cache: true, route: true }).require('deadbox', deadboxOptions, function (err) { });
+server.pack.require('../', deadboxOptions, function (err) { });
 
 server.start(function () {
 

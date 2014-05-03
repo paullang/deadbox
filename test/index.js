@@ -19,7 +19,7 @@ var it = Lab.test;
 
 describe('deadbox', function () {
 
-    var cacheTypes = ['memory']; // Hapi also supports 'redis', 'mongodb'
+    var cacheTypes = ['catbox-memory']; //  also supports 'catbox-redis', 'catbox-mongodb', 'catbox-memcached', and 'catbox-riak' 
 
     cacheTypes.forEach(function (cacheType) {
 
@@ -32,7 +32,7 @@ describe('deadbox', function () {
             };
 
             var server = new Hapi.Server('0.0.0.0', 0, serverOptions);
-            server.pack.allow({ cache: true, route: true }).require('../', pluginOptions, function (err) {
+            server.pack.require('../', pluginOptions, function (err) {
 
                 expect(err).to.not.exist;
 

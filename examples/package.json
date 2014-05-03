@@ -9,7 +9,7 @@
   "author": "",
   "license": "BSD",
   "dependencies": {
-    "hapi": "1.x.x",
+    "hapi": "4.1.x",
     "deadbox": "0.0.x"
   }
 }
