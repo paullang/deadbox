@@ -12,18 +12,9 @@ Install **deadbox** by running `npm install deadbox --save` in your Hapi applica
 
 ### Example usage 
 
-```javascript
-var Hapi = require('hapi');
-var server = new Hapi.Server(8000, { cache: 'catbox-memory' });
-var deadboxOptions = { messageForGet: 'Here is the last copy!', messageForGetNotFound: 'You are too late!', ttl: 60000 };
+Example included in [examples/index.js](https://github.com/paullang/deadbox/blob/master/examples/index.js) and you can run it with:
 
-server.pack.require('deadbox', deadboxOptions, function (err) { });
-
-server.start(function () {
-
-    console.log('Server running at: ' + server.info.uri);
-});
-```
+    node ./examples
 
 Execute the following commands to set and get a value by key
 
@@ -38,4 +29,4 @@ If you try to get it again, it will no longer be there.
 ### Notes
 * See internals.defaults in lib/index.js for all the options you can override.
 * deadbox requires cache & route plugin permissions to be set to true.
-* This example uses Hapi's default memory cache that can only store a limited amount of data, but Hapi also supports caching to Redis, MongoDB, and [more listed here](https://github.com/spumko/catbox#installation).
+* This example uses Hapi's default memory cache that can only store a limited amount of data, but Hapi also supports caching to Redis, MongoDB, and [more listed here](https://github.com/hapijs/catbox#installation).

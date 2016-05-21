@@ -1,44 +1,42 @@
 // Load modules
 
-var Lab = require('lab');
-var Hapi = require('hapi');
+const Code = require('code');
+const Lab = require('lab');
+const Hapi = require('hapi');
 
 
 // Declare internals
 
-var internals = {};
+const internals = {};
 
 
 // Test shortcuts
-
-var expect = Lab.expect;
-var before = Lab.before;
-var after = Lab.after;
-var describe = Lab.experiment;
-var it = Lab.test;
+const lab = exports.lab = Lab.script();
+const expect = Code.expect;
+const describe = lab.describe;
+const it = lab.it;
 
 describe('deadbox', function () {
 
-    var cacheTypes = ['catbox-memory']; //  also supports 'catbox-redis', 'catbox-mongodb', 'catbox-memcached', and 'catbox-riak' 
+    const cacheTypes = ['catbox-memory']; //  also supports 'catbox-redis', 'catbox-mongodb', 'catbox-memcached', and 'catbox-riak' 
 
     cacheTypes.forEach(function (cacheType) {
 
         it('sets key value pair and can get back value with key only once with default options for cacheType: ' + cacheType, function (done) {
 
-            var pluginOptions = {};
-
-            var serverOptions = {
+            const options = {
                 cache: { engine: cacheType }
             };
 
-            var server = new Hapi.Server('0.0.0.0', 0, serverOptions);
-            server.pack.require('../', pluginOptions, function (err) {
+            const server = new Hapi.Server();
+            server.connection();
+            server.register({register: require('../'), options: options}, function (err) {
 
                 expect(err).to.not.exist;
 
                 server.start(function() {
 
-                    var req = {
+                    const req = {
                         method: 'POST',
                         url: 'http://example.com/box',
                         payload: JSON.stringify({ key: 'catch', value: 'me if you can' })
@@ -49,7 +47,7 @@ describe('deadbox', function () {
                         expect(res.statusCode).to.equal(200);
                         expect(JSON.parse(res.payload).message).to.equal('Your data is in the box');
 
-                        var req = {
+                        const req = {
                             method: 'GET',
                             url: 'http://example.com/box?key=catch'
                         };
