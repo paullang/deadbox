@@ -1,7 +1,7 @@
 {
   "name": "deadbox",
   "description": "Anonymous dead drop plugin for Hapi.js",
-  "version": "13.0.0",
+  "version": "15.0.0",
   "author": "Paul Lang",
   "contributors": [],
   "repository": "git://github.com/paullang/deadbox",
@@ -22,17 +22,17 @@
   },
   "dependencies": {
     "catbox-memory": "2.x.x",
-    "joi": "8.x.x",
+    "joi": "9.x.x",
     "hoek": "4.x.x",
-    "boom": "3.x.x"
+    "boom": "4.x.x"
   },
   "devDependencies": {
-    "hapi": "13.x.x",
-    "lab": "10.x.x",
+    "hapi": "15.x.x",
+    "lab": "11.x.x",
     "code": "3.x.x"
   },
   "peerDependencies": {
-    "hapi": "13.x.x"
+    "hapi": "15.x.x"
   },
   "licenses": [
     {
